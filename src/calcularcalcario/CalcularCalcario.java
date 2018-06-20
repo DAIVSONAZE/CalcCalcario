@@ -6,13 +6,20 @@
 package calcularcalcario;
 
 import java.awt.Color;
+import java.awt.Container;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.ParseException;
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.JOptionPane;
+
+import javax.swing.text.MaskFormatter;
 
 /**
  *
@@ -20,75 +27,100 @@ import javax.swing.JTextField;
  */
 public class CalcularCalcario extends JFrame {
   
-    private Double NCTonHac, V2, V1, T, f;
-    private String hac;
-    
-    public CalcularCalcario(){
-        super("Formula para CAlcular CAlcario");
-    
-    JFrame frame = new JFrame();
-    JPanel painel = new JPanel();
+    private Double NCTonHac, V2, V1, T, f, hac, totalcalcario;
+
+    public CalcularCalcario() throws ParseException{
+        super();
+        
+        Container painel = getContentPane();
+             setLayout(null);
+
    
     JButton botao = new JButton("Calcular");
+        botao.setBounds(20,380,200,30);
     
+    //label com resposta vermelha para o resultado final
     JLabel labelvalor = new JLabel();
-    labelvalor.setForeground(Color.red);
+        labelvalor.setForeground(Color.red);
+        labelvalor.setBounds(500,40,200,20);
+        
+                JLabel labelhectare = new JLabel();
+                    labelhectare.setForeground(Color.red);
+                    labelhectare.setBounds(500,70,200,20);
     
-        JTextField texto1 = new JTextField(" ", 4);
-        JTextField texto2 = new JTextField(" ", 4);
-        JTextField texto3 = new JTextField(" ", 4);
-        JTextField texto4 = new JTextField(" ", 4);
-        JTextField texto5 = new JTextField(" ", 4);
-        JTextField texto6 = new JTextField(" ", 4);
-        JTextField texto7 = new JTextField(" ", 4);
-        JTextField texto8 = new JTextField(" ", 4);
-        JTextField texto9 = new JTextField(" ", 4);
-        JTextField texto10 = new JTextField(" ", 4);
+    //------------------------------------------------------------------------
+        
+        //mascara
+        MaskFormatter mascaratexto1 = new MaskFormatter("##.##");
+        JFormattedTextField texto1 = new JFormattedTextField(mascaratexto1);
+            // setBounds(eixo X, eixo Y, comrpimento, largura);
+            texto1.setBounds(200,40,40,20);
+        
+        MaskFormatter mascaratexto2 = new MaskFormatter("##");
+        JFormattedTextField texto2 = new JFormattedTextField(mascaratexto2);
+            texto2.setBounds(200,70,40,20);
+        
+        MaskFormatter mascaratexto3 = new MaskFormatter("##");
+        JFormattedTextField texto3 = new JFormattedTextField(mascaratexto3);
+            texto3.setBounds(200,100,40,20);
+        
+        MaskFormatter mascaratexto4 = new MaskFormatter("##.##");
+        JFormattedTextField texto4 = new JFormattedTextField(mascaratexto4);
+            texto4.setBounds(200,130,40,20);
+        
+        MaskFormatter mascaratexto5 = new MaskFormatter("##.##");
+        JFormattedTextField texto5 = new JFormattedTextField(mascaratexto5);
+            texto5.setBounds(200,160,40,20);
+        
+        MaskFormatter mascaratexto6 = new MaskFormatter("##.##");
+        JFormattedTextField texto6 = new JFormattedTextField(mascaratexto6);
+            texto6.setBounds(200,190,40,20);
+        
+        MaskFormatter mascaratexto7 = new MaskFormatter("##.##");
+        JFormattedTextField texto7 = new JFormattedTextField(mascaratexto7);
+            texto7.setBounds(200,220,40,20);
+        
+        MaskFormatter mascaratexto8 = new MaskFormatter("##.##");
+        JFormattedTextField texto8 = new JFormattedTextField(mascaratexto8);
+            texto8.setBounds(200,250,40,20);
+        
+        MaskFormatter mascaratexto9 = new MaskFormatter("##.##");
+        JFormattedTextField texto9 = new JFormattedTextField(mascaratexto9);
+            texto9.setBounds(200,280,40,20);
+        
+        MaskFormatter mascaratexto10 = new MaskFormatter("##.##");
+        JFormattedTextField texto10 = new JFormattedTextField(mascaratexto10);
+            texto10.setBounds(200,310,40,20);
+        
+      //------------------------------------------------------------------------  
         
             JLabel label1 = new JLabel("CTC potencial - T(cmol/dm³):");
+                label1.setBounds(20,40,200,20);
             JLabel label2 = new JLabel("Saturação por bases - V1(%):");
+                label2.setBounds(20,70,200,20);
             JLabel label3 = new JLabel("Saturação por bases - V2(%):");
+                label3.setBounds(20,100,200,20);
             JLabel label4 = new JLabel("Mg(cmol/dm³):");
+                label4.setBounds(20,130,200,20);
             JLabel label5 = new JLabel("Ca(cmol/dm³):");
+                label5.setBounds(20,160,200,20);
             JLabel label6 = new JLabel("Al(cmol/dm³):");
+                label6.setBounds(20,190,200,20);
             JLabel label7 = new JLabel("Argila(dag/kg):");
+                label7.setBounds(20,220,200,20);
             JLabel label8 = new JLabel("Área(ha):");
+                label8.setBounds(20,250,200,20);
             JLabel label9 = new JLabel("PRNT(%):");
+                label9.setBounds(20,290,200,20);
             JLabel label10 = new JLabel("SB(cmol/dm³):");
+                label10.setBounds(20,320,200,20);
+            JLabel label11 = new JLabel("Necessidade de Calagem (ton/ha):");
+                label11.setBounds(300,40,200,20);
+            JLabel label12 = new JLabel("Total de Calcário (ton):");
+                label12.setBounds(300,70,200,20);
             
-            
-                texto1.setDocument(new TamanhoFixoJTextField(5));
-                    texto1.setDocument(new SoNumerosJTextField());
+        //------------------------------------------------------------------------     
                 
-                texto2.setDocument(new TamanhoFixoJTextField(5));
-                    texto2.setDocument(new SoNumerosJTextField());
-                
-                texto3.setDocument(new TamanhoFixoJTextField(5));
-                    texto3.setDocument(new SoNumerosJTextField());
-                
-                texto4.setDocument(new TamanhoFixoJTextField(5));
-                    texto4.setDocument(new SoNumerosJTextField());
-                    
-                texto5.setDocument(new TamanhoFixoJTextField(5));
-                    texto5.setDocument(new SoNumerosJTextField());
-                    
-                texto6.setDocument(new TamanhoFixoJTextField(5));
-                    texto6.setDocument(new SoNumerosJTextField());
-                    
-                texto7.setDocument(new TamanhoFixoJTextField(5));
-                    texto7.setDocument(new SoNumerosJTextField());
-                    
-                texto8.setDocument(new TamanhoFixoJTextField(5));
-                    texto8.setDocument(new SoNumerosJTextField());
-                    
-                texto9.setDocument(new TamanhoFixoJTextField(5));
-                    texto9.setDocument(new SoNumerosJTextField());
-                    
-                texto10.setDocument(new TamanhoFixoJTextField(5));
-                    texto10.setDocument(new SoNumerosJTextField());
-       
-        
-                painel.add(labelvalor);
         painel.add(label1);
         painel.add(texto1);
          painel.add(label2);
@@ -109,19 +141,22 @@ public class CalcularCalcario extends JFrame {
                                     painel.add(texto9);
                                         painel.add(label10);
                                         painel.add(texto10);
+                                            
+                                            painel.add(label11);
+                                            painel.add(label12);
+                                            
                                             painel.add(labelvalor);
-        
-                                        
-        
-        painel.add(botao);
-        
-        painel.setSize(300, 100);
-        
-        frame.add(painel);
-        frame.setVisible(true);
-        frame.setSize(300, 400);
-        frame.setLocation(450, 100);
-        
+                                            painel.add(labelhectare);
+                                            
+                                                painel.add(botao);
+                                                
+     //------------------------------------------------------------------------                                          
+        setTitle("Fórmula para Calcular Calcário");                                  
+        setSize(650, 470);
+        setVisible(true);
+        setLocation(450, 100);
+     //------------------------------------------------------------------------    
+          
         botao.addActionListener(
         
                 new ActionListener() {
@@ -129,28 +164,50 @@ public class CalcularCalcario extends JFrame {
             @Override
             public void actionPerformed(ActionEvent evento) {
                 //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            
+           
+                try {
+                    
                 // V1 - Ã© valor encontrado na anÃ¡lise (saturacao por bases)
-                V1 = Double.parseDouble(String.valueOf(texto2.getText()));
+                V1 = Double.parseDouble(texto2.getText());
                 
                 // V2 - Ã© o valor que queremos elevar (saturacao por bases)
-                V2 = Double.parseDouble(String.valueOf(texto3.getText()));
+                V2 = Double.parseDouble(texto3.getText());
                 
-                //T = capacidade de troca de cations a pH 7,0
-                T = Double.parseDouble(String.valueOf(texto1.getText()));
+                        //T = capacidade de troca de cations a pH 7,0 NumberFormatException
+                T = Double.parseDouble(texto1.getText());
                 
                 //f - fator de correÃ§Ã£o do PRNT do calcario a ser utilizado. 
-                f = 100/(Double.parseDouble(String.valueOf(texto9.getText())));
+                f = 100/Double.parseDouble(texto9.getText());
+                
                 
                 // Area(hactare - ha)
-                hac = String.valueOf(texto8.getText());
+                hac = Double.parseDouble(texto8.getText());
                 
-                //formula para calculo da necessidade de calagem 
+                
+                } catch (Exception e) {
+                    
+                     //labelvalor.setText("REPITA!");
+                    JOptionPane.showMessageDialog(null,"Algum campo não foi preechido!", "ATENÇÃO!", JOptionPane.WARNING_MESSAGE);
+                }
+           
+                
+                try {
+                    
+                    //formula para calculo da necessidade de calagem 
                 NCTonHac = (V2 - V1) * T * (f / 100);
+                    BigDecimal resultNC = new BigDecimal(NCTonHac).setScale(3, RoundingMode.HALF_EVEN);  
+                labelvalor.setText(String.valueOf(resultNC));
                 
-                //JOptionPane.showMessageDialog(null, "Necessidade de calagem(Ton/ha):" + NCTonHac + "Hectare:"+ hac , "Calculo", JOptionPane.PLAIN_MESSAGE);
-                        
-               labelvalor.setText(String.valueOf(NCTonHac));
+                totalcalcario = NCTonHac * hac;
+                
+                    BigDecimal resultTotHac = new BigDecimal(totalcalcario).setScale(3, RoundingMode.HALF_EVEN);
+                labelhectare.setText(String.valueOf( resultTotHac));
+                
+                } catch (Exception e) {
+                    
+                    labelvalor.setText("CAMPO VAZIO AO LADO!");
+                }
+                
             }
            }
         
@@ -159,13 +216,12 @@ public class CalcularCalcario extends JFrame {
       }  
     
     
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args) throws ParseException {
+   
         CalcularCalcario calcular = new CalcularCalcario();
         
         calcular.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        
+   
     }
 
     

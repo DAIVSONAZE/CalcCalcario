@@ -19,7 +19,7 @@ public class SoNumerosJTextField extends PlainDocument{
 
     @Override
     public void insertString(int i, String string, AttributeSet as) throws BadLocationException {
-        super.insertString(i, string.replaceAll("[^0-9]", "."), as); //To change body of generated methods, choose Tools | Templates.
+        super.insertString(i, string.replaceAll("[^0-9]", ""), as); //To change body of generated methods, choose Tools | Templates.
     }
     
     
