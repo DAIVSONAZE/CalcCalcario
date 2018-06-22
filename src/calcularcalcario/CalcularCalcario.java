@@ -7,17 +7,23 @@ package calcularcalcario;
 
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.MenuItem;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.ParseException;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+
 
 import javax.swing.text.MaskFormatter;
 
@@ -35,6 +41,68 @@ public class CalcularCalcario extends JFrame {
         Container painel = getContentPane();
              setLayout(null);
 
+          
+   //---- Menu------        
+    //barra do menu
+    JMenuBar menuBar = new JMenuBar();
+    //novo Menu
+    JMenu menuFile = new JMenu("Métodos"); 
+    //item do menu
+    JMenuItem menuItem = new JMenuItem("Saturação Por Base");
+        menuItem.addActionListener(new ActionListener() { 
+            public void actionPerformed(ActionEvent e) {
+           
+                String textocalcario = "Método da saturação por bases passo a passo\n" +
+"\n" +
+"Com a análise de solos em mãos faça esse passo a passo para o cálculo de calagem:\n" +
+"\n" +
+"1º passo: Saiba e entenda a fórmula\n" +
+"\n" +
+"NC = [CTC x (V2 – V1) x (100/PRNT)] / 100\n" +
+"\n" +
+"NC = Necessidade de calcário, em t/ha;\n" +
+"\n" +
+"CTC = CTCpH7 (capacidade de troca de cátions) em cmolc/dm3;\n" +
+"\n" +
+"V2 = Porcentagem de saturação por bases desejada;\n" +
+"\n" +
+"V1 = Porcentagem de saturação por bases atual do solo (encontrada na análise do solo);\n" +
+"\n" +
+"PRNT = Poder Relativo de Neutralização Total (encontrado na embalagem do calcário).\n" +
+"\n" +
+" \n" +
+"\n" +
+"2º passo: Saiba qual saturação de bases (V%) você vai usar\n" +
+"\n" +
+"A saturação por bases desejada (V2) pode variar de 50 a 70%, sendo em geral:\n" +
+"\n" +
+"    50% para cereais e tubérculos;\n" +
+"    60% para leguminosas e cana-de-açúcar e utilizado no Cerrado;\n" +
+"    70% para hortaliças, café e frutas.\n" +
+"\n" +
+"Se na sua análise não possuir o V% você pode calcular facilmente:\n" +
+"\n" +
+"V% = [Soma de bases (K + Ca + Mg + Na) x 100 ]/CTC\n" +
+"\n" +
+"Muitas vezes o Na não entra nesse cálculo por ter uma quantidade \n" +
+ "muito pequena e muitas análises de solo não determinam.\n "+
+ "\n" +
+ "\n" +
+"\n" +
+                        " 3º passo: Faça o cálculo\n" +
+"\n" +
+"Você tem dúvidas sobre o cálculo? Então vamos a um exemplo de uma análise de solo:\n " 
+                        
+                        ;
+
+                JOptionPane.showMessageDialog(null,textocalcario.toUpperCase(), "Saturação por Bases", JOptionPane.INFORMATION_MESSAGE);
+                
+            }
+    });
+    menuFile.add(menuItem);
+    menuBar.add(menuFile);
+    super.setJMenuBar(menuBar);
+    //------------------------------
    
     JButton botao = new JButton("Calcular");
         botao.setBounds(20,380,200,30);
@@ -53,14 +121,14 @@ public class CalcularCalcario extends JFrame {
         //mascara
         MaskFormatter mascaratexto1 = new MaskFormatter("##.##");
         JFormattedTextField texto1 = new JFormattedTextField(mascaratexto1);
-            // setBounds(eixo X, eixo Y, comrpimento, largura);
+            // setBounds(eixo X, eixo Y, comprimento, largura);
             texto1.setBounds(200,40,40,20);
         
-        MaskFormatter mascaratexto2 = new MaskFormatter("##");
+        MaskFormatter mascaratexto2 = new MaskFormatter("##.##");
         JFormattedTextField texto2 = new JFormattedTextField(mascaratexto2);
             texto2.setBounds(200,70,40,20);
         
-        MaskFormatter mascaratexto3 = new MaskFormatter("##");
+        MaskFormatter mascaratexto3 = new MaskFormatter("##.##");
         JFormattedTextField texto3 = new JFormattedTextField(mascaratexto3);
             texto3.setBounds(200,100,40,20);
         
@@ -219,7 +287,6 @@ public class CalcularCalcario extends JFrame {
     public static void main(String[] args) throws ParseException {
    
         CalcularCalcario calcular = new CalcularCalcario();
-        
         calcular.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
    
     }
