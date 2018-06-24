@@ -7,14 +7,14 @@ package calcularcalcario;
 
 import java.awt.Color;
 import java.awt.Container;
-import java.awt.MenuItem;
+
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.ParseException;
-import javax.swing.ImageIcon;
+
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
@@ -48,58 +48,28 @@ public class CalcularCalcario extends JFrame {
     //novo Menu
     JMenu menuFile = new JMenu("Métodos"); 
     //item do menu
-    JMenuItem menuItem = new JMenuItem("Saturação Por Base");
-        menuItem.addActionListener(new ActionListener() { 
+    JMenuItem menuItem1 = new JMenuItem("Saturação Por Base");
+        menuItem1.addActionListener(new ActionListener() { 
             public void actionPerformed(ActionEvent e) {
            
-                String textocalcario = "Método da saturação por bases passo a passo\n" +
-"\n" +
-"Com a análise de solos em mãos faça esse passo a passo para o cálculo de calagem:\n" +
-"\n" +
-"1º passo: Saiba e entenda a fórmula\n" +
-"\n" +
-"NC = [CTC x (V2 – V1) x (100/PRNT)] / 100\n" +
-"\n" +
-"NC = Necessidade de calcário, em t/ha;\n" +
-"\n" +
-"CTC = CTCpH7 (capacidade de troca de cátions) em cmolc/dm3;\n" +
-"\n" +
-"V2 = Porcentagem de saturação por bases desejada;\n" +
-"\n" +
-"V1 = Porcentagem de saturação por bases atual do solo (encontrada na análise do solo);\n" +
-"\n" +
-"PRNT = Poder Relativo de Neutralização Total (encontrado na embalagem do calcário).\n" +
-"\n" +
-" \n" +
-"\n" +
-"2º passo: Saiba qual saturação de bases (V%) você vai usar\n" +
-"\n" +
-"A saturação por bases desejada (V2) pode variar de 50 a 70%, sendo em geral:\n" +
-"\n" +
-"    50% para cereais e tubérculos;\n" +
-"    60% para leguminosas e cana-de-açúcar e utilizado no Cerrado;\n" +
-"    70% para hortaliças, café e frutas.\n" +
-"\n" +
-"Se na sua análise não possuir o V% você pode calcular facilmente:\n" +
-"\n" +
-"V% = [Soma de bases (K + Ca + Mg + Na) x 100 ]/CTC\n" +
-"\n" +
-"Muitas vezes o Na não entra nesse cálculo por ter uma quantidade \n" +
- "muito pequena e muitas análises de solo não determinam.\n "+
- "\n" +
- "\n" +
-"\n" +
-                        " 3º passo: Faça o cálculo\n" +
-"\n" +
-"Você tem dúvidas sobre o cálculo? Então vamos a um exemplo de uma análise de solo:\n " 
-                        
-                        ;
-
-                JOptionPane.showMessageDialog(null,textocalcario.toUpperCase(), "Saturação por Bases", JOptionPane.INFORMATION_MESSAGE);
+                SaturacaoBases saturabases = new SaturacaoBases();
+                
+                JOptionPane.showMessageDialog(null,saturabases.saturarBases().toUpperCase(), "Saturação por Bases", JOptionPane.INFORMATION_MESSAGE);
                 
             }
     });
-    menuFile.add(menuItem);
+   JMenuItem menuItem2 = new JMenuItem("Teores de Al e (Ca+Mg) trocáveis");
+        menuItem2.addActionListener(new ActionListener() { 
+            public void actionPerformed(ActionEvent e) {
+           
+                TeoresTrocaveis teorestro = new TeoresTrocaveis();
+  
+                JOptionPane.showMessageDialog(null,teorestro.trocarTeores().toUpperCase(), "Teores de Al e (Ca+Mg) trocáveis", JOptionPane.INFORMATION_MESSAGE);
+                
+            }
+    });
+    menuFile.add(menuItem1);
+    menuFile.add(menuItem2);
     menuBar.add(menuFile);
     super.setJMenuBar(menuBar);
     //------------------------------
