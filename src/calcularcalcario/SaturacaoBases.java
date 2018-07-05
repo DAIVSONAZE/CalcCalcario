@@ -33,8 +33,6 @@ public class SaturacaoBases {
 "\n" +
 "PRNT = Poder Relativo de Neutralização Total (encontrado na embalagem do calcário).\n" +
 "\n" +
-" \n" +
-"\n" +
 "2º passo: Saiba qual saturação de bases (V%) você vai usar\n" +
 "\n" +
 "A saturação por bases desejada (V2) pode variar de 50 a 70%, sendo em geral:\n" +
@@ -50,12 +48,21 @@ public class SaturacaoBases {
 "Muitas vezes o Na não entra nesse cálculo por ter uma quantidade \n" +
  "muito pequena e muitas análises de solo não determinam.\n "+
  "\n" +
- "\n" +
-"\n" +
                         " 3º passo: Faça o cálculo\n" +
 "\n" +
-"Você tem dúvidas sobre o cálculo? Então vamos a um exemplo de uma análise de solo:\n " ;
-                        
+"Você tem dúvidas sobre o cálculo? Então vamos a um exemplo de uma análise de solo:\n " +
+"|   pH      |    M.O.      |           P        |  K  |  Ca  |  Mg  |  H+Al  | SB  | CTC  |  V  |  m  | \n" +
+"|(CaCl2)  | (g/dm-3) | (mg/dm-3) |                     (cmolc/dm-3)                |     (%)     | \n" +
+"|     5,1     |        21     |         22       | 0,4 |  2,6  | 0,7 |   11,3   | 3,7 |    15   |  25 |  5  | \n"+
+"Considerando que a cultura é uma leguminosa, V2=60% e que meu calcário tem PRNT = 90%.\n" +
+"\n" +
+"NC = [CTC x (V2 – V1)] x (100/PRNT) / 100\n" +
+"\n" +
+"NC = [15 x (60 – 25) x (100/90)] / 100 = 5,8 t/ha\n" +
+"\n" +
+"Assim, você deve aplicar 5,8 toneladas de calcário por hectare."
+  
+                         ;
                         
                  return textoporbases;
     }

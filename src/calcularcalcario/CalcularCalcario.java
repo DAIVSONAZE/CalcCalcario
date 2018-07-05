@@ -8,13 +8,13 @@ package calcularcalcario;
 import java.awt.Color;
 import java.awt.Container;
 
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.ParseException;
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
@@ -23,14 +23,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-
-
 import javax.swing.text.MaskFormatter;
 
-/**
- *
- * @author Marilane
- */
 public class CalcularCalcario extends JFrame {
   
     private Double NCTonHac, V2, V1, T, f, hac, totalcalcario;
@@ -42,7 +36,8 @@ public class CalcularCalcario extends JFrame {
              setLayout(null);
 
           
-   //---- Menu------        
+   //---- Menu------     
+    
     //barra do menu
     JMenuBar menuBar = new JMenuBar();
     //novo Menu
@@ -50,24 +45,46 @@ public class CalcularCalcario extends JFrame {
     //item do menu
     JMenuItem menuItem1 = new JMenuItem("Saturação Por Base");
         menuItem1.addActionListener(new ActionListener() { 
+            @Override
             public void actionPerformed(ActionEvent e) {
-           
+                        
                 SaturacaoBases saturabases = new SaturacaoBases();
                 
-                JOptionPane.showMessageDialog(null,saturabases.saturarBases().toUpperCase(), "Saturação por Bases", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null,saturabases.saturarBases(), "Saturação por Bases", JOptionPane.INFORMATION_MESSAGE);
                 
             }
     });
    JMenuItem menuItem2 = new JMenuItem("Teores de Al e (Ca+Mg) trocáveis");
         menuItem2.addActionListener(new ActionListener() { 
+            @Override
             public void actionPerformed(ActionEvent e) {
            
                 TeoresTrocaveis teorestro = new TeoresTrocaveis();
-  
-                JOptionPane.showMessageDialog(null,teorestro.trocarTeores().toUpperCase(), "Teores de Al e (Ca+Mg) trocáveis", JOptionPane.INFORMATION_MESSAGE);
+                
+                JOptionPane.showMessageDialog(null,teorestro.trocarTeores(), "Teores de Al e (Ca+Mg) trocáveis", JOptionPane.INFORMATION_MESSAGE);
                 
             }
     });
+    JMenuItem menuItem3 = new JMenuItem("Calculo para Teores de Al e (Ca+Mg) trocáveis");
+        menuItem3.addActionListener(new ActionListener() { 
+            @Override
+            public void actionPerformed(ActionEvent e) {
+           
+               CalcularCalcarioTrocaveis trocar = null;
+                try {
+                    trocar = new CalcularCalcarioTrocaveis();
+                    trocar.setVisible(true);
+                      trocar.setSize(600, 450);
+                      
+                } catch (ParseException ex) {
+                    Logger.getLogger(CalcularCalcario.class.getName()).log(Level.SEVERE, null, ex);
+                }
+               
+               
+               
+            }   
+    });
+        menuFile.add(menuItem3);
     menuFile.add(menuItem1);
     menuFile.add(menuItem2);
     menuBar.add(menuFile);
@@ -149,14 +166,14 @@ public class CalcularCalcario extends JFrame {
             JLabel label8 = new JLabel("Área(ha):");
                 label8.setBounds(20,250,200,20);
             JLabel label9 = new JLabel("PRNT(%):");
-                label9.setBounds(20,290,200,20);
+                label9.setBounds(20,285,200,20);
             JLabel label10 = new JLabel("SB(cmol/dm³):");
-                label10.setBounds(20,320,200,20);
+                label10.setBounds(20,315,200,20);
             JLabel label11 = new JLabel("Necessidade de Calagem (ton/ha):");
                 label11.setBounds(300,40,200,20);
             JLabel label12 = new JLabel("Total de Calcário (ton):");
                 label12.setBounds(300,70,200,20);
-            
+                
         //------------------------------------------------------------------------     
                 
         painel.add(label1);
@@ -187,10 +204,10 @@ public class CalcularCalcario extends JFrame {
                                             painel.add(labelhectare);
                                             
                                                 painel.add(botao);
-                                                
+                                        
      //------------------------------------------------------------------------                                          
         setTitle("Fórmula para Calcular Calcário");                                  
-        setSize(650, 470);
+        setSize(665, 480);
         setVisible(true);
         setLocation(450, 100);
      //------------------------------------------------------------------------    
