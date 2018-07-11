@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package calcularcalcario;
 
 import java.awt.Color;
@@ -70,23 +66,22 @@ public class CalcularCalcario extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
            
-               CalcularCalcarioTrocaveis trocar = null;
+               
                 try {
-                    trocar = new CalcularCalcarioTrocaveis();
+                   CalcularCalcarioTrocaveis trocar = new CalcularCalcarioTrocaveis();
                     trocar.setVisible(true);
                       trocar.setSize(600, 450);
                       
                 } catch (ParseException ex) {
                     Logger.getLogger(CalcularCalcario.class.getName()).log(Level.SEVERE, null, ex);
                 }
-               
-               
-               
+            
             }   
     });
-        menuFile.add(menuItem3);
+        
     menuFile.add(menuItem1);
-    menuFile.add(menuItem2);
+        menuFile.add(menuItem2);
+            menuFile.add(menuItem3);
     menuBar.add(menuFile);
     super.setJMenuBar(menuBar);
     //------------------------------
@@ -262,6 +257,7 @@ public class CalcularCalcario extends JFrame {
                     
                     labelvalor.setText("CAMPO VAZIO AO LADO!");
                 }
+                
                 
             }
            }
