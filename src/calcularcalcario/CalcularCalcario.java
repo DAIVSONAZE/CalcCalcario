@@ -201,7 +201,7 @@ public class CalcularCalcario extends JFrame {
                                                 painel.add(botao);
                                         
      //------------------------------------------------------------------------                                          
-        setTitle("Fórmula para Calcular Calcário");                                  
+        setTitle("Fórmula para Calcular Calcário - Saturação Por Base");                                  
         setSize(665, 480);
         setVisible(true);
         setLocation(450, 100);

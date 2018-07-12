@@ -22,7 +22,7 @@ import javax.swing.text.MaskFormatter;
 
 public class CalcularCalcarioTrocaveis extends JFrame{
 
-    private Double Al, Ca, Mg, f, NCala  ;
+    private Double Al, Ca, Mg, f, NCala;
     private Integer Y, X;
     
     
@@ -37,15 +37,13 @@ public class CalcularCalcarioTrocaveis extends JFrame{
         
         Container conter = getContentPane();
          
-        
-        
-        
+
         JLabel valorNCala = new JLabel();
         valorNCala.setForeground(Color.red);
         pinel.add(valorNCala);
         
-        spriglayout.putConstraint(SpringLayout.WEST, valorNCala, 100, SpringLayout.WEST, pinel);
-         spriglayout.putConstraint(SpringLayout.NORTH, valorNCala, 190, SpringLayout.NORTH, pinel);
+        spriglayout.putConstraint(SpringLayout.WEST, valorNCala, 210, SpringLayout.WEST, pinel);
+         spriglayout.putConstraint(SpringLayout.NORTH, valorNCala, 230, SpringLayout.NORTH, pinel);
         
         //---------------------------------------------------------------------------------------------- 
              JLabel valorAl = new JLabel("Al(cmol/dm³):");
@@ -141,6 +139,13 @@ public class CalcularCalcarioTrocaveis extends JFrame{
              spriglayout.putConstraint(SpringLayout.NORTH, textovalor6, 160, SpringLayout.NORTH, pinel);
         
         //----------------------------------------------------------------------------------------------
+             
+             JLabel ncalaLabel = new JLabel("Necessidade de Calagem (ton/ha):");
+             pinel.add(ncalaLabel);
+             
+             spriglayout.putConstraint(SpringLayout.WEST, ncalaLabel, 10, SpringLayout.WEST, pinel);
+             spriglayout.putConstraint(SpringLayout.NORTH, ncalaLabel, 230, SpringLayout.NORTH, pinel);
+        //----------------------------------------------------------------------------------------------
              JButton botaoCalcular = new JButton("Calcular");
              pinel.add(botaoCalcular);
              spriglayout.putConstraint(SpringLayout.WEST, botaoCalcular, 10, SpringLayout.WEST, pinel);
@@ -185,7 +190,7 @@ public class CalcularCalcarioTrocaveis extends JFrame{
             
             try{
                 
-                NCala  = (Y * Al) + (X - (Ca+Mg)) * f;
+                NCala  = ((Y * Al) + (X - (Ca+Mg))) * f;
                 BigDecimal resultNCala = new BigDecimal(NCala).setScale(3, RoundingMode.HALF_EVEN);
                 valorNCala.setText(String.valueOf(resultNCala));
                 
@@ -197,18 +202,12 @@ public class CalcularCalcarioTrocaveis extends JFrame{
             
         }
     }
-             
-             
-             
              );
-             
-            
-            
+           
         conter.add(pinel);
       
     }
-
-    
+  
 }
    
 
