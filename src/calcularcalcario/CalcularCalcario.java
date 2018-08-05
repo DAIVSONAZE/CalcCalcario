@@ -11,6 +11,7 @@ import java.math.RoundingMode;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
@@ -43,10 +44,9 @@ public class CalcularCalcario extends JFrame {
         menuItem1.addActionListener(new ActionListener() { 
             @Override
             public void actionPerformed(ActionEvent e) {
-                        
-                SaturacaoBases saturabases = new SaturacaoBases();
-                
-                JOptionPane.showMessageDialog(null,saturabases.saturarBases(), "Saturação por Bases", JOptionPane.INFORMATION_MESSAGE);
+              
+                ImageIcon imagebases = new ImageIcon("src\\calcularcalcario\\imagemFolder\\saturacaobase.JPG");
+                JOptionPane.showMessageDialog(null,imagebases, "Saturação por Bases", JOptionPane.INFORMATION_MESSAGE);
                 
             }
     });
@@ -55,9 +55,8 @@ public class CalcularCalcario extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
            
-                TeoresTrocaveis teorestro = new TeoresTrocaveis();
-                
-                JOptionPane.showMessageDialog(null,teorestro.trocarTeores(), "Teores de Al e (Ca+Mg) trocáveis", JOptionPane.INFORMATION_MESSAGE);
+                ImageIcon imagetrocaveis = new ImageIcon("src\\calcularcalcario\\imagemFolder\\teorestrocaveis.JPG");
+                JOptionPane.showMessageDialog(null,imagetrocaveis, "Teores de Al e (Ca+Mg) trocáveis", JOptionPane.INFORMATION_MESSAGE);
                 
             }
     });
