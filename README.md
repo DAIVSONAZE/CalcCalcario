@@ -1,2 +1,2 @@
 # CalcCalcario
-Necessidade de Calcário (NC) em Java GUI
+Necessidade de Calcário (NC) em Java GUI (Swing)
