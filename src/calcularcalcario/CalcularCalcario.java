@@ -3,6 +3,7 @@ package calcularcalcario;
 
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Dimension;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,6 +21,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.SpringLayout;
 import javax.swing.text.MaskFormatter;
 
 public class CalcularCalcario extends JFrame {
@@ -29,9 +32,15 @@ public class CalcularCalcario extends JFrame {
     public CalcularCalcario() throws ParseException{
         super();
         
-        Container painel = getContentPane();
-             setLayout(null);
+       // Container painel = getContentPane();
+            // setLayout(null);
 
+            JPanel painel = new JPanel();
+            
+            SpringLayout springlayout = new SpringLayout();
+            painel.setLayout(springlayout);
+            
+            Container contain = getContentPane();
           
    //---- Menu------     
     
@@ -103,107 +112,181 @@ public class CalcularCalcario extends JFrame {
         MaskFormatter mascaratexto1 = new MaskFormatter("##.##");
         JFormattedTextField texto1 = new JFormattedTextField(mascaratexto1);
             // setBounds(eixo X, eixo Y, comprimento, largura);
-            texto1.setBounds(200,40,40,20);
+            texto1.setPreferredSize(new Dimension(40, 20));
+            
+            springlayout.putConstraint(SpringLayout.WEST, texto1, 180, SpringLayout.WEST, painel);
+            springlayout.putConstraint(SpringLayout.NORTH, texto1, 10, SpringLayout.NORTH, painel);
         
         MaskFormatter mascaratexto2 = new MaskFormatter("##.##");
         JFormattedTextField texto2 = new JFormattedTextField(mascaratexto2);
-            texto2.setBounds(200,70,40,20);
+            texto2.setPreferredSize(new Dimension(40, 20));
+            
+            springlayout.putConstraint(SpringLayout.WEST, texto2, 180, SpringLayout.WEST, painel);
+             springlayout.putConstraint(SpringLayout.NORTH, texto2, 40, SpringLayout.NORTH, painel);
         
         MaskFormatter mascaratexto3 = new MaskFormatter("##.##");
         JFormattedTextField texto3 = new JFormattedTextField(mascaratexto3);
-            texto3.setBounds(200,100,40,20);
+            texto3.setPreferredSize(new Dimension(40, 20));
+            
+            springlayout.putConstraint(SpringLayout.WEST, texto3, 180, SpringLayout.WEST, painel);
+             springlayout.putConstraint(SpringLayout.NORTH, texto3, 70, SpringLayout.NORTH, painel);
         
         MaskFormatter mascaratexto4 = new MaskFormatter("##.##");
         JFormattedTextField texto4 = new JFormattedTextField(mascaratexto4);
-            texto4.setBounds(200,130,40,20);
+            texto4.setPreferredSize(new Dimension(40, 20));
+            
+            springlayout.putConstraint(SpringLayout.WEST, texto4, 180, SpringLayout.WEST, painel);
+             springlayout.putConstraint(SpringLayout.NORTH, texto4, 100, SpringLayout.NORTH, painel);
         
         MaskFormatter mascaratexto5 = new MaskFormatter("##.##");
         JFormattedTextField texto5 = new JFormattedTextField(mascaratexto5);
-            texto5.setBounds(200,160,40,20);
+            texto5.setPreferredSize(new Dimension(40, 20));
+            
+            springlayout.putConstraint(SpringLayout.WEST, texto5, 180, SpringLayout.WEST, painel);
+             springlayout.putConstraint(SpringLayout.NORTH, texto5, 130, SpringLayout.NORTH, painel);
         
         MaskFormatter mascaratexto6 = new MaskFormatter("##.##");
         JFormattedTextField texto6 = new JFormattedTextField(mascaratexto6);
-            texto6.setBounds(200,190,40,20);
+            texto6.setPreferredSize(new Dimension(40, 20));
+            
+            springlayout.putConstraint(SpringLayout.WEST, texto6, 180, SpringLayout.WEST, painel);
+             springlayout.putConstraint(SpringLayout.NORTH, texto6, 160, SpringLayout.NORTH, painel);
         
         MaskFormatter mascaratexto7 = new MaskFormatter("##.##");
         JFormattedTextField texto7 = new JFormattedTextField(mascaratexto7);
-            texto7.setBounds(200,220,40,20);
+            texto7.setPreferredSize(new Dimension(40, 20));
+            
+            springlayout.putConstraint(SpringLayout.WEST, texto7, 180, SpringLayout.WEST, painel);
+             springlayout.putConstraint(SpringLayout.NORTH, texto7, 190, SpringLayout.NORTH, painel);
         
         MaskFormatter mascaratexto8 = new MaskFormatter("##.##");
         JFormattedTextField texto8 = new JFormattedTextField(mascaratexto8);
-            texto8.setBounds(200,250,40,20);
+            texto8.setPreferredSize(new Dimension(40, 20));
+            
+            springlayout.putConstraint(SpringLayout.WEST, texto8, 180, SpringLayout.WEST, painel);
+             springlayout.putConstraint(SpringLayout.NORTH, texto8, 220, SpringLayout.NORTH, painel);
         
         MaskFormatter mascaratexto9 = new MaskFormatter("##.##");
         JFormattedTextField texto9 = new JFormattedTextField(mascaratexto9);
-            texto9.setBounds(200,280,40,20);
+            texto9.setPreferredSize(new Dimension(40, 20));
+            
+            springlayout.putConstraint(SpringLayout.WEST, texto9, 180, SpringLayout.WEST, painel);
+             springlayout.putConstraint(SpringLayout.NORTH, texto9, 250, SpringLayout.NORTH, painel);
         
         MaskFormatter mascaratexto10 = new MaskFormatter("##.##");
         JFormattedTextField texto10 = new JFormattedTextField(mascaratexto10);
-            texto10.setBounds(200,310,40,20);
+            texto10.setPreferredSize(new Dimension(40, 20));
+            
+            springlayout.putConstraint(SpringLayout.WEST, texto10, 180, SpringLayout.WEST, painel);
+             springlayout.putConstraint(SpringLayout.NORTH, texto10, 280, SpringLayout.NORTH, painel);
         
       //------------------------------------------------------------------------  
         
             JLabel label1 = new JLabel("CTC potencial - T(cmol/dm³):");
                 label1.setBounds(20,40,200,20);
+             springlayout.putConstraint(SpringLayout.WEST, label1, 10, SpringLayout.WEST, painel);
+            springlayout.putConstraint(SpringLayout.NORTH, label1, 10, SpringLayout.NORTH, painel);   
+                
             JLabel label2 = new JLabel("Saturação por bases - V1(%):");
-                label2.setBounds(20,70,200,20);
+               
             JLabel label3 = new JLabel("Saturação por bases - V2(%):");
-                label3.setBounds(20,100,200,20);
+                
             JLabel label4 = new JLabel("Mg(cmol/dm³):");
-                label4.setBounds(20,130,200,20);
+                
             JLabel label5 = new JLabel("Ca(cmol/dm³):");
-                label5.setBounds(20,160,200,20);
+                
             JLabel label6 = new JLabel("Al(cmol/dm³):");
-                label6.setBounds(20,190,200,20);
+                
             JLabel label7 = new JLabel("Argila(dag/kg):");
-                label7.setBounds(20,220,200,20);
+                
             JLabel label8 = new JLabel("Área(ha):");
-                label8.setBounds(20,250,200,20);
+                
             JLabel label9 = new JLabel("PRNT(%):");
-                label9.setBounds(20,285,200,20);
+                
             JLabel label10 = new JLabel("SB(cmol/dm³):");
-                label10.setBounds(20,315,200,20);
+                
             JLabel label11 = new JLabel("Necessidade de Calagem (ton/ha):");
-                label11.setBounds(300,40,200,20);
+                
             JLabel label12 = new JLabel("Total de Calcário (ton):");
-                label12.setBounds(300,70,200,20);
+               
                 
         //------------------------------------------------------------------------     
                 
         painel.add(label1);
-        painel.add(texto1);
+        springlayout.putConstraint(SpringLayout.WEST, label1, 10, SpringLayout.WEST, painel);
+        springlayout.putConstraint(SpringLayout.NORTH, label1, 10, SpringLayout.NORTH, painel);
+            painel.add(texto1);
+        
          painel.add(label2);
-         painel.add(texto2);
+         springlayout.putConstraint(SpringLayout.WEST, label2, 10, SpringLayout.WEST, painel);
+         springlayout.putConstraint(SpringLayout.NORTH, label2, 40, SpringLayout.NORTH, painel);
+            painel.add(texto2);
+        
             painel.add(label3);
-             painel.add(texto3);
+            springlayout.putConstraint(SpringLayout.WEST, label3, 10, SpringLayout.WEST, painel);
+            springlayout.putConstraint(SpringLayout.NORTH, label3, 70, SpringLayout.NORTH, painel);
+                painel.add(texto3);
+             
                 painel.add(label4);
-                painel.add(texto4);
+                springlayout.putConstraint(SpringLayout.WEST, label4, 10, SpringLayout.WEST, painel);
+                springlayout.putConstraint(SpringLayout.NORTH, label4, 100, SpringLayout.NORTH, painel);
+                    painel.add(texto4);
+                    
                     painel.add(label5);
-                    painel.add(texto5);
+                    springlayout.putConstraint(SpringLayout.WEST, label5, 10, SpringLayout.WEST, painel);
+                    springlayout.putConstraint(SpringLayout.NORTH, label5, 130, SpringLayout.NORTH, painel);
+                        painel.add(texto5);
+                        
                         painel.add(label6);
-                        painel.add(texto6);
+                        springlayout.putConstraint(SpringLayout.WEST, label6, 10, SpringLayout.WEST, painel);
+                        springlayout.putConstraint(SpringLayout.NORTH, label6, 160, SpringLayout.NORTH, painel);
+                            painel.add(texto6);
+                        
                             painel.add(label7);
-                            painel.add(texto7);
+                            springlayout.putConstraint(SpringLayout.WEST, label7, 10, SpringLayout.WEST, painel);
+                            springlayout.putConstraint(SpringLayout.NORTH, label7, 190, SpringLayout.NORTH, painel);
+                                painel.add(texto7);
+                            
                                 painel.add(label8);
+                                springlayout.putConstraint(SpringLayout.WEST, label8, 10, SpringLayout.WEST, painel);
+                                springlayout.putConstraint(SpringLayout.NORTH, label8, 220, SpringLayout.NORTH, painel);
                                 painel.add(texto8);
+                                
                                     painel.add(label9);
+                                    springlayout.putConstraint(SpringLayout.WEST, label9, 10, SpringLayout.WEST, painel);
+                                    springlayout.putConstraint(SpringLayout.NORTH, label9, 250, SpringLayout.NORTH, painel);
                                     painel.add(texto9);
+                                    
                                         painel.add(label10);
+                                        springlayout.putConstraint(SpringLayout.WEST, label10, 10, SpringLayout.WEST, painel);
+                                        springlayout.putConstraint(SpringLayout.NORTH, label10, 280, SpringLayout.NORTH, painel);
                                         painel.add(texto10);
                                             
                                             painel.add(label11);
+                                            springlayout.putConstraint(SpringLayout.WEST, label11, 300, SpringLayout.WEST, painel);
+                                            springlayout.putConstraint(SpringLayout.NORTH, label11, 10, SpringLayout.NORTH, painel);
+                                            
                                             painel.add(label12);
+                                            springlayout.putConstraint(SpringLayout.WEST, label12, 300, SpringLayout.WEST, painel);
+                                            springlayout.putConstraint(SpringLayout.NORTH, label12, 30, SpringLayout.NORTH, painel);
                                             
                                             painel.add(labelvalor);
+                                            springlayout.putConstraint(SpringLayout.WEST, labelvalor, 500, SpringLayout.WEST, painel);
+                                            springlayout.putConstraint(SpringLayout.NORTH, labelvalor, 10, SpringLayout.NORTH, painel);
+                                            
                                             painel.add(labelhectare);
+                                            springlayout.putConstraint(SpringLayout.WEST, labelhectare, 435, SpringLayout.WEST, painel);
+                                            springlayout.putConstraint(SpringLayout.NORTH, labelhectare, 30, SpringLayout.NORTH, painel);
                                             
                                                 painel.add(botao);
+                                                springlayout.putConstraint(SpringLayout.WEST, botao, 50, SpringLayout.WEST, painel);
+                                                springlayout.putConstraint(SpringLayout.NORTH, botao, 320, SpringLayout.NORTH, painel);
                                         
      //------------------------------------------------------------------------                                          
         setTitle("Fórmula para Calcular Calcário - Saturação Por Base");                                  
         setSize(665, 480);
         setVisible(true);
-        setLocation(450, 100);
+        setLocation(330, 100);
      //------------------------------------------------------------------------    
           
         botao.addActionListener(
@@ -263,6 +346,7 @@ public class CalcularCalcario extends JFrame {
         
         );
         
+        contain.add(painel);
       }  
     
     
